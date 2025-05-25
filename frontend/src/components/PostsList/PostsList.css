@@ -1,7 +1,8 @@
-.post-list {
-    
+.posts-list {
+    margin: 2rem;
 }
 
-.title {
-    
+.posts-list-title {
+    font-size: 2rem;
+    color: black;
 }
