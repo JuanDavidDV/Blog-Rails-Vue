@@ -22,42 +22,14 @@
 
 <script setup>
   import "./Posts.css"
-  import { ref, onMounted } from "vue";
+  import { usePosts } from "../../composables/usePost";
 
-  const posts = ref([]);
-  const title = ref("");
-  const body = ref("");
-  const postId = ref(0);
-  const isEditing = ref(false);
-
-  const API_URL = "http://localhost:3000/posts";
-
-  const createPost = async() => {
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: title.value,
-        body: body.value
-      })
-    })
-
-    const data = await res.json();
-
-    postId.value.push(data);
-    title.value = "";
-    body.value = "";
-    postId.value = 0;
-  };
-
-
-  const updatePost = async() => {
-    return true;
-  };
-
-  const cancelEdit = () => {
-    return true;
-  };
+  const {
+    title, 
+    body, 
+    isEditing,
+    createPost, 
+    updatePost,
+    cancelEdit
+  } = usePosts();
 </script>

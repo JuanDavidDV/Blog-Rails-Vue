@@ -1,10 +1,23 @@
 <template>
   <div class="posts-list">
     <h2 class="title">My Posts</h2>
-    <p>Hello Wordl</p>
+    
+    <div class="posts-list-container" v-for="post in posts" :key="post.id">
+      <h3>[{{ post.id }}] {{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+
+      <button @click="editPost(post.id)">Edit</button>
+      <button @click="deletePost(post.id)">Delete</button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import "./PostsList.css";
+  import "./PostsList.css";
+  import { usePosts } from "../../composables/usePost";
+
+  const {
+    editPost,
+    deletePost
+  } = usePosts();
 </script>
