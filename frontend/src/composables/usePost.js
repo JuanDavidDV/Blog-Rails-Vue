@@ -62,7 +62,7 @@ const fetchPosts = async () => {
   const cancelEdit = () => {
     title.value = "";
     body.value = "";
-    postId.value = "";
+    postId.value = 0;
     isEditing.value = false;
   };
 
