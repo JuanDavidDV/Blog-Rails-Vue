@@ -34,6 +34,13 @@ const fetchPosts = async () => {
     postId.value = 0;
   };
 
+  const deletePost = async(id) => {
+    await fetch(`${API_URL}/${id}`, {
+      method: "DELETE"
+    })
+    posts.value = posts.value.filter(post => post.id !== id);
+  };
+
   const updatePost = async() => {
     return true;
   };
@@ -52,6 +59,7 @@ const fetchPosts = async () => {
       postId,
       isEditing,
       fetchPosts,
+      deletePost,
       createPost,
       updatePost,
       cancelEdit
