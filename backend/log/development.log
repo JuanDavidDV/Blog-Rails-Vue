@@ -29,3 +29,35 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 15ms (Views: 5.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/post" for ::1 at 2025-05-25 12:35:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  
+ActionController::RoutingError (No route matches [POST] "/post"):
+  
+  [1m[36mPost Load (9.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for pp */ LIMIT 11 /*application='Backend'*/[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1 /*application='Backend'*/[0m
+Started POST "/posts" for ::1 at 2025-05-25 12:36:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Processing by PostsController#create as */*
+  Parameters: {"title"=>"Test", "body"=>"Test", "post"=>{"title"=>"Test", "body"=>"Test"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:20:in `create'
+  [1m[36mPost Create (2.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES ('Test', 'Test', '2025-05-25 16:36:27.660828', '2025-05-25 16:36:27.660828') RETURNING "id" /*action='create',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*action='create',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:20:in `create'
+Completed 201 Created in 16ms (Views: 0.5ms | ActiveRecord: 19.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mPost Load (7.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for pp */ LIMIT 11 /*application='Backend'*/[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Backend'*/[0m
+  [1m[36mPost Update (1.8ms)[0m  [1m[33mUPDATE "posts" SET "title" = 'Hello World', "updated_at" = '2025-05-25 16:37:22.294177' WHERE "posts"."id" = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Backend'*/[0m
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mPost Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" /*application='Backend'*/[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mPost Destroy (3.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = 1 /*application='Backend'*/[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for pp */ LIMIT 11 /*application='Backend'*/[0m
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" /*application='Backend'*/[0m
