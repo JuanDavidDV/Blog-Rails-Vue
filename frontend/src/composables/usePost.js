@@ -41,8 +41,28 @@ const fetchPosts = async () => {
     posts.value = posts.value.filter(post => post.id !== id);
   };
 
-  const updatePost = async() => {
-    return true;
+  const updatePost = async(id) => {
+    const res = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title.value,
+        body: body.value,
+        id: postId.value
+      })
+    })
+
+    const data = await res.json();
+    
+    const index = posts.value.findIndex(post => post.id === data.id);
+    posts.value[index] = data;
+    
+    title.value = "";
+    body.value = "";
+    postId.value = 0;
+    isEditing.value = false;
   };
 
   const editPost = async(id) => {

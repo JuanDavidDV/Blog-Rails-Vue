@@ -13,7 +13,7 @@
     />
     <div>
         <!-- only renders if editing the post-->
-      <button v-if="isEditing" @click="updatePost" class="update-botton">Update</button>
+      <button v-if="isEditing" @click="updatePost(postId)" class="update-botton">Update</button>
       <button v-if="isEditing" @click="cancelEdit">Cancel</button>
             
       <!--only renders if not editing the post-->
@@ -33,7 +33,8 @@
 
   const {
     title, 
-    body, 
+    body,
+    postId, 
     isEditing,
     createPost, 
     updatePost,
