@@ -15,5 +15,5 @@
 </template>
 
 <script setup>
-  import "./Post.css"
+  import "./Posts.css"
 </script>
