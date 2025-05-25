@@ -15,9 +15,16 @@
 <script setup>
   import "./PostsList.css";
   import { usePosts } from "../../composables/usePost";
+  import { onMounted } from "vue";
 
   const {
+    posts,
     editPost,
-    deletePost
+    deletePost,
+    fetchPosts
   } = usePosts();
+
+  onMounted(() => {
+    fetchPosts();
+  })
 </script>

@@ -5,7 +5,7 @@ const API_URL = "http://localhost:3000/posts";
 const posts = ref([]);
 const title = ref("");
 const body = ref("");
-const postId = (0);
+const postId = ref(0);
 const isEditing = ref(false);
 
 const fetchPosts = async () => {
@@ -28,7 +28,7 @@ const fetchPosts = async () => {
 
     const data = await res.json();
 
-    postId.value.push(data);
+    posts.value.push(data);
     title.value = "";
     body.value = "";
     postId.value = 0;
@@ -42,6 +42,8 @@ const fetchPosts = async () => {
     return true;
   };
 
+  onMounted(fetchPosts);
+
   export function usePosts() {
     return {
       posts,
@@ -54,4 +56,4 @@ const fetchPosts = async () => {
       updatePost,
       cancelEdit
     }
-  }
+  };
