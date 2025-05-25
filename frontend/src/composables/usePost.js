@@ -46,11 +46,24 @@ const fetchPosts = async () => {
   };
 
   const editPost = async(id) => {
-   // const post = 
+    const post = posts.value.find(post => post.id === id);
+
+    title.value = post.title;
+    body.value = post.body;
+    postId.value = post.id;
+    isEditing.value = true;
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
   }
 
   const cancelEdit = () => {
-    return true;
+    title.value = "";
+    body.value = "";
+    postId.value = "";
+    isEditing.value = false;
   };
 
   onMounted(fetchPosts);
@@ -66,6 +79,7 @@ const fetchPosts = async () => {
       deletePost,
       createPost,
       updatePost,
+      editPost,
       cancelEdit
     }
   };

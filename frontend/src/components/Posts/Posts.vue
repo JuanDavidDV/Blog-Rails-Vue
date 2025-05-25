@@ -11,12 +11,14 @@
           placeholder="Body"
           class="body-input"
     />
-    <!-- only renders if editing the post-->
-    <button v-if="isEditing" @click="updatePost">Update</button>
-    <button v-if="isEditing" @click="cancelEdit">Cancel</button>
-
-    <!--only renders if not editing the post-->
-    <button v-else @click="handleCreate">Create</button>
+    <div>
+        <!-- only renders if editing the post-->
+      <button v-if="isEditing" @click="updatePost" class="update-botton">Update</button>
+      <button v-if="isEditing" @click="cancelEdit">Cancel</button>
+            
+      <!--only renders if not editing the post-->
+      <button v-else @click="handleCreate">Create</button>
+    </div>
 
     <p v-if="error" class="error-message">{{ error }}</p>
   </div>
