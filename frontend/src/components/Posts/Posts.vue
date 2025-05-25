@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="post">
     <h1 class="title">Posts</h1>
     <input type="text"
           v-model="title"
@@ -11,13 +11,13 @@
           placeholder="Body"
           class="body-input"
     />
-  </div>
-  <!-- only renders if editing the post-->
-  <button v-if="isEditing" @click="updatePost">Update</button>
-  <button v-if="isEditing" @click="cancelEdit">Cancel</button>
+    <!-- only renders if editing the post-->
+    <button v-if="isEditing" @click="updatePost">Update</button>
+    <button v-if="isEditing" @click="cancelEdit">Cancel</button>
 
-  <!--only renders if not editing the post-->
-  <button v-else @click="createPost">Create</button>
+    <!--only renders if not editing the post-->
+    <button v-else @click="createPost">Create</button>
+  </div>
 </template>
 
 <script setup>
