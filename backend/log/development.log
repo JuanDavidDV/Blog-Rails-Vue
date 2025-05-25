@@ -3190,3 +3190,57 @@ Processing by PostsController#update as */*
 Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 5.7ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/posts" for ::1 at 2025-05-25 17:17:17 -0400
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC /*action='index',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-05-25 17:17:32 -0400
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC /*action='index',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/posts/65" for ::1 at 2025-05-25 17:17:33 -0400
+Processing by PostsController#destroy as */*
+  Parameters: {"id"=>"65"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 65 LIMIT 1 /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in `set_post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:38:in `destroy'
+  [1m[36mPost Destroy (1.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = 65 /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:38:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 5.1ms (2 queries, 0 cached) | GC: 1.6ms)
+
+
+Started DELETE "/posts/64" for ::1 at 2025-05-25 17:17:33 -0400
+Processing by PostsController#destroy as */*
+  Parameters: {"id"=>"64"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 64 LIMIT 1 /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in `set_post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:38:in `destroy'
+  [1m[36mPost Destroy (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = 64 /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT /*action='destroy',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:38:in `destroy'
+Completed 204 No Content in 9ms (ActiveRecord: 5.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2025-05-25 17:17:38 -0400
+Processing by PostsController#create as */*
+  Parameters: {"title"=>"Hello", "body"=>"World", "post"=>{"title"=>"Hello", "body"=>"World"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:20:in `create'
+  [1m[36mPost Create (1.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES ('Hello', 'World', '2025-05-25 21:17:38.918105', '2025-05-25 21:17:38.918105') RETURNING "id" /*action='create',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT /*action='create',application='Backend',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:20:in `create'
+Completed 201 Created in 11ms (Views: 0.5ms | ActiveRecord: 5.1ms (1 query, 0 cached) | GC: 1.4ms)
+
+
