@@ -16,7 +16,6 @@
   import "./PostsList.css";
   import { usePosts } from "../../composables/usePost";
   import { onMounted } from "vue";
-import Posts from "../Posts/Posts.vue";
 
   const {
     posts,
