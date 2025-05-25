@@ -16,6 +16,7 @@
     color: black;
     border-radius: 0.25rem;
     resize: vertical;
+    font-size: 1rem;
 }
 
 .body-input {
@@ -29,8 +30,16 @@
     color: black;
     border-radius: 0.25rem;
     resize: vertical;
+    font-size: 1rem;
 }
 
 .title {
     color: rgb(0, 0, 0);
+}
+
+.error-message {
+    background-color: rgb(236, 103, 103);
+    color: darkred;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
 }

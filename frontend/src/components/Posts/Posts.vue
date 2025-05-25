@@ -16,13 +16,18 @@
     <button v-if="isEditing" @click="cancelEdit">Cancel</button>
 
     <!--only renders if not editing the post-->
-    <button v-else @click="createPost">Create</button>
+    <button v-else @click="handleCreate">Create</button>
+
+    <p v-if="error" class="error-message">{{ error }}</p>
   </div>
 </template>
 
 <script setup>
   import "./Posts.css"
   import { usePosts } from "../../composables/usePost";
+  import { ref } from "vue";
+
+  const error = ref("");
 
   const {
     title, 
@@ -32,4 +37,14 @@
     updatePost,
     cancelEdit
   } = usePosts();
+
+  const handleCreate = async() => {
+    if(!title.value.trim() ||  !body.value.trim()) {
+      error.value = "Title or Body cannot be empty!"
+      return;
+    }
+
+    error.value= ""; // Clears error message
+    await createPost();
+  }
 </script>
