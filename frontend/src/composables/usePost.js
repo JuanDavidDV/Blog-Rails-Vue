@@ -45,6 +45,10 @@ const fetchPosts = async () => {
     return true;
   };
 
+  const editPost = async(id) => {
+   // const post = 
+  }
+
   const cancelEdit = () => {
     return true;
   };
